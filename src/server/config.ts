@@ -10,6 +10,8 @@ export default () => {
   server.set( 'views', path.join( __dirname, 'views' ) );
   server.set( 'view engine', 'pug' );
 
+  server.use( express.static( path.join( __dirname, 'assets' ) ) );
+
   server.get( '*', routes.landingPage );
 
   return server;
