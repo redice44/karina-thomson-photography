@@ -10,6 +10,7 @@
     "start:dev": "nodemon --watch dist --delay 2 -e js,pug dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch:app": "nodemon --watch src/app -e tsx --exec \"webpack\"",
+    "watch:sass": "node-sass --output-style compact ./src/sass -o ./dist/server/assets/css && node-sass --output-style compact -w ./src/sass -o ./dist/server/assets/css ",
     "watch:server": "nodemon --watch src/server -e ts,pug --exec \"npm run build\""
   },
   "keywords": [],
@@ -21,6 +22,7 @@
     "@types/react": "^16.0.40",
     "@types/react-dom": "^16.0.4",
     "awesome-typescript-loader": "^4.0.1",
+    "node-sass": "^4.7.2",
     "source-map-loader": "^0.2.3",
     "typescript": "^2.7.2",
     "webpack": "^4.1.1",

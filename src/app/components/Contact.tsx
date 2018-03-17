@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { FullPane } from './FullPane';
+import { HalfPane } from './HalfPane';
 
 export interface ContactProps {
 
@@ -11,5 +12,10 @@ export interface ContactProps {
 export const Contact = ( props: ContactProps ) => 
 
   <FullPane>
-    Contact
+    <HalfPane side="left">
+      <img src="/images/IMG_8362.jpg" />
+    </HalfPane>
+    <HalfPane side="right">
+      Contact Form
+    </HalfPane>
   </FullPane>
