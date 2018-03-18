@@ -2,12 +2,13 @@ import * as React from 'react';
 
 export interface FullPaneProps {
 
-  children?: any
+  id?: string;
+  children?: any;
 
 }
 
 export const FullPane = ( props: FullPaneProps ) =>
 
-  <section className="full-pane">
+  <section id={ props.id } className="full-pane">
     { props.children }
   </section>

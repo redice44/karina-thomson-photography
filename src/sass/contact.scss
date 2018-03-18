@@ -1,0 +1,64 @@
+#contact {
+
+  .half-pane {
+
+    box-sizing: border-box;
+
+    &.right {
+
+      padding: 20px;
+
+    }
+
+  }
+
+  #contact-form {
+
+    width: 100%;
+
+    input[type="text"],
+    input[type="email"],
+    input[type="submit"],
+    textarea {
+
+      margin-bottom: 10px;
+      padding: 10px;
+      font-size: 20px;
+      font-family: sans-serif;
+      box-sizing: border-box;
+      background-color: transparent;
+      color: #757575;
+      border: 0;
+
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+
+      width: 100%;
+
+    }
+
+    input[type="text"],
+    input[type="email"] {
+
+      border-bottom: 1px solid #757575;
+
+    }
+
+    textarea {
+
+      height: 300px;
+
+    }
+
+    input[type="submit"]:hover {
+
+      background-color: #f2f2f2;
+
+    }
+
+  }
+
+}

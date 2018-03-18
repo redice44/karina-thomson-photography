@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import { FullPane } from './FullPane';
 import { HalfPane } from './HalfPane';
+import { ContactForm } from './ContactForm';
 
 export interface ContactProps {
 
@@ -11,11 +12,11 @@ export interface ContactProps {
 
 export const Contact = ( props: ContactProps ) => 
 
-  <FullPane>
+  <FullPane id="contact">
     <HalfPane side="left">
       <img src="/images/IMG_8362.jpg" />
     </HalfPane>
-    <HalfPane side="right">
-      Contact Form
+    <HalfPane valign="center" side="right">
+      <ContactForm />
     </HalfPane>
   </FullPane>
