@@ -10,6 +10,6 @@ export interface GalleriesProps {
 
 export const Galleries = ( props: GalleriesProps ) =>
 
-  <FullPane>
+  <FullPane id="galleries">
     Galleries
   </FullPane>

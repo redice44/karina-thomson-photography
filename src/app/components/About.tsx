@@ -1,15 +1,16 @@
 import * as React from 'react';
 
+import { AboutText } from './AboutText';
 import { FullPane } from './FullPane';
 import { HalfPane } from './HalfPane';
 
 export const About = () =>
 
-  <FullPane>
+  <FullPane id="about">
     <HalfPane side="left">
       <img src="/images/IMG_8862.jpg" />
     </HalfPane>
-    <HalfPane side="right">
-      About Blurb
+    <HalfPane side="right" valign="center">
+      <AboutText />
     </HalfPane>
   </FullPane>
