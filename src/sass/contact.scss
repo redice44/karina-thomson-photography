@@ -21,7 +21,7 @@
   h1 {
 
     text-align: center;
-    font-size: 30px;
+    // font-size: 30px;
     margin-bottom: 30px;
 
   }
@@ -33,11 +33,9 @@
 
     margin-bottom: 10px;
     padding: 10px;
-    font-size: 20px;
-    font-family: sans-serif;
+    // font-family: sans-serif;
     box-sizing: border-box;
     background-color: transparent;
-    color: #757575;
     border: 0;
 
   }
@@ -65,7 +63,7 @@
 
   input[type="submit"]:hover {
 
-    background-color: #f2f2f2;
+    cursor: pointer;
 
   }
 

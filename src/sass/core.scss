@@ -1,4 +1,23 @@
-$primary-text-color: #757575;
+$primary-font-color: #757575;
+$primary-font: Oranienbaum;
+$base-font-size: 20px;
+
+$heading-font: Reading;
+$heading-font-color: #333333;
+
+@font-face {
+
+  font-family: 'Oranienbaum';
+  src: url( '/fonts/Oranienbaum.ttf' );
+
+}
+
+@font-face {
+
+  font-family: 'Reading';
+  src: url( '/fonts/Reading Regular.ttf' );
+
+}
 
 * {
   
@@ -10,7 +29,34 @@ $primary-text-color: #757575;
 body {
 
   background-color: #fff;
-  font-family: sans-serif;
-  color: $primary-text-color;
+  font-size: $base-font-size;
+
+  p,
+  input,
+  textarea {
+
+    font-family: $primary-font;
+    font-size: 1em;
+    color: $primary-font-color;
+
+  }
+
+  h1, 
+  h2, 
+  h3, 
+  h4, 
+  h5, 
+  h6 {
+
+    font-family: $heading-font;
+    color: $heading-font-color;
+
+  }
+
+  h1 {
+
+    font-size: 3em;
+
+  }
 
 }
