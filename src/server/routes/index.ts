@@ -1,5 +1,7 @@
 import * as express from 'express';
 
+import ContactRouter from './contact';
+
 const landingPage = ( req: express.Request, res: express.Response ) => {
 
   return res.render( 'landing' );
@@ -8,7 +10,8 @@ const landingPage = ( req: express.Request, res: express.Response ) => {
 
 export default {
 
-  landingPage: landingPage
+  landingPage: landingPage,
+  contactRouter: ContactRouter
 
 };
 
