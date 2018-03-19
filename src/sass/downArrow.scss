@@ -1,0 +1,31 @@
+.down-arrow {
+
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+
+  .icon {
+
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: rgba( 0, 0, 0, 0.2 );
+    opacity: 0.1;
+
+    cursor: pointer;
+    
+  }
+
+  // left: 50vw;
+
+  svg {
+
+    fill: #333333;
+
+  }
+
+}

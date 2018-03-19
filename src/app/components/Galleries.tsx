@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { DownArrow } from './DownArrow';
 import { FullPane } from './FullPane';
 import { FrontPageGallery } from './FrontPageGallery';
 
@@ -70,6 +71,7 @@ export class Galleries extends React.Component < GalleriesProps, GalleriesState 
 
       <FullPane id="galleries" className="main-pane">
         { galleries }
+        <DownArrow />
       </FullPane>
 
     );

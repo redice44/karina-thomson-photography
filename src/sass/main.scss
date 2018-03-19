@@ -1,3 +1,5 @@
+$transition-speed: 0.5s;
+
 .full-pane {
 
   height: 100vh;
@@ -5,6 +7,41 @@
   &.main-pane {
 
     overflow: hidden;
+
+    .down-arrow {
+
+      .icon {
+
+        transition-duration: $transition-speed;
+        transition-property: opacity, margin;
+        transition-timing-function: ease-in;
+
+      }
+
+    }
+
+    &:hover {
+
+      .down-arrow {
+
+        .icon {
+
+          opacity: 0.5;
+          transition-duration: $transition-speed;
+          transition-property: opacity, margin;
+          transition-timing-function: ease-in;
+
+          &:hover {
+
+            opacity: 1;
+
+          }
+        
+        }
+
+      }
+
+    }
 
   }
 
