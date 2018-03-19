@@ -1,7 +1,12 @@
 .full-pane {
 
   height: 100vh;
-  overflow: hidden;
+
+  &.main-pane {
+
+    overflow: hidden;
+
+  }
 
 }
 

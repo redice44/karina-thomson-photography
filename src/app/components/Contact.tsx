@@ -12,7 +12,7 @@ export interface ContactProps {
 
 export const Contact = ( props: ContactProps ) => 
 
-  <FullPane id="contact">
+  <FullPane id="contact" className="main-pane">
     <HalfPane side="left">
       <img src="/images/IMG_8362.jpg" />
     </HalfPane>

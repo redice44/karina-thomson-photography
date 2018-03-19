@@ -6,7 +6,7 @@ import { HalfPane } from './HalfPane';
 
 export const About = () =>
 
-  <FullPane id="about">
+  <FullPane id="about" className="main-pane">
     <HalfPane side="left">
       <img src="/images/IMG_8862.jpg" />
     </HalfPane>
