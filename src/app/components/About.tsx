@@ -4,9 +4,18 @@ import { AboutText } from './AboutText';
 import { FullPane } from './FullPane';
 import { HalfPane } from './HalfPane';
 
-export const About = () =>
+export interface AboutProps {
 
-  <FullPane id="about" className="main-pane">
+  className?: string;
+
+}
+
+export const About = ( props: AboutProps ) =>
+
+  <FullPane
+    id="about"
+    className={ `main-pane ${ props.className ? props.className : '' }` }
+  >
     <HalfPane side="left">
       <img src="/images/IMG_8862.jpg" />
     </HalfPane>

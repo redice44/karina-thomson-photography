@@ -1,12 +1,13 @@
 import * as React from 'react';
 
-import { DownArrow } from './DownArrow';
+// import { DownArrow } from './DownArrow';
 import { FullPane } from './FullPane';
 import { FrontPageGallery } from './FrontPageGallery';
 
 export interface GalleriesProps {
 
   children?: any;
+  className?: string;
   galleries: string[];
 
 }
@@ -69,9 +70,11 @@ export class Galleries extends React.Component < GalleriesProps, GalleriesState 
 
     return (
 
-      <FullPane id="galleries" className="main-pane">
+      <FullPane
+        id="galleries"  
+        className={ `main-pane ${ this.props.className ? this.props.className : '' }` }
+      >
         { galleries }
-        <DownArrow />
       </FullPane>
 
     );

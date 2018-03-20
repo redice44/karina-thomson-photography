@@ -6,7 +6,27 @@ $transition-speed: 0.5s;
 
   &.main-pane {
 
+    // display: none;
+    // height: 110vh;
+    width: 100vw;
+    opacity: 0;
     overflow: hidden;
+    position: fixed;
+    // top: 50px;
+    transition-duration: $transition-speed;
+    transition-property: opacity, top, left;
+    transition-timing-function: ease-in;
+
+    &.active {
+
+      // display: block;
+      // top: -5vh;
+      top: 0;
+      left: 0;
+      opacity: 1;
+      z-index: 100;
+
+    }
 
     .down-arrow {
 

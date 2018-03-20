@@ -1,5 +1,11 @@
 #galleries {
 
+  .above {
+
+    opacity: 0;
+
+  }
+
   .gallery {
 
     display: none;    
@@ -15,7 +21,7 @@
 
     img {
 
-      width: 100vw;
+      width: 100%;
 
     }
 
