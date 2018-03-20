@@ -1,4 +1,34 @@
+$breakpoint-small: 480px;
+
 #about {
+
+  @media (max-width: $breakpoint-small) {
+
+    height: 200vh;
+
+  }
+
+  @media (min-width: $breakpoint-small) {
+
+    height: 100vh;
+
+  }
+
+  &.below {
+
+    // top: -5vh;
+    top: 0;
+    left: -3vh;
+
+  }
+
+  &.above {
+
+    // top: -5vh;
+    top: 0;
+    left: 0;
+
+  }
 
   .half-pane {
 

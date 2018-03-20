@@ -1,9 +1,9 @@
-$primary-font-color: #757575;
+$primary-font-color: #AFAFAF;
 $primary-font: Oranienbaum;
 $base-font-size: 20px;
 
 $heading-font: Reading;
-$heading-font-color: #333333;
+$heading-font-color: #757575;
 
 @font-face {
 
@@ -20,7 +20,7 @@ $heading-font-color: #333333;
 }
 
 * {
-  
+
   margin: 0;
   padding: 0;
 
@@ -41,11 +41,11 @@ body {
 
   }
 
-  h1, 
-  h2, 
-  h3, 
-  h4, 
-  h5, 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
   h6 {
 
     font-family: $heading-font;

@@ -1,51 +1,10 @@
 #galleries {
 
-  .gallery {
+  height: 100vh;
 
-    display: none;    
+  .above {
 
-    &.active {
-
-      display: block;
-
-      -webkit-animation: fade 5s linear 0s 1 normal;
-      animation: fade 5s linear 0s 1 normal;
-
-    }
-
-    img {
-
-      width: 100vw;
-
-    }
-
-  }
-
-}
-
-@-webkit-keyframes fade {
-
-  0% {
-
-    opacity: 0.25;
-
-  }
-
-  5% {
-
-    opacity: 1;
-
-  }
-
-  95% {
-
-    opacity: 1;
-
-  }
-
-  100% {
-
-    opacity: 0.25;
+    opacity: 0;
 
   }
 

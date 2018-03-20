@@ -9,8 +9,12 @@ export interface FrontPageGalleryProps {
 
 }
 
-export const FrontPageGallery = ( props: FrontPageGalleryProps ) => 
 
-  <FullPane className={ `gallery ${ props.className ? props.className : '' }` }>
-    <img src={ props.imgSrc } />
-  </FullPane>
+    // <img src={ props.imgSrc } />
+
+export const FrontPageGallery = ( props: FrontPageGalleryProps ) =>
+
+  <FullPane
+    className={ `gallery ${ props.className ? props.className : '' }` }
+    style={{ backgroundImage: `url(${ props.imgSrc })` }}
+  />

@@ -4,23 +4,105 @@ import { Galleries } from './Galleries';
 import { About } from './About';
 import { Contact } from './Contact';
 
-export const App = () => {
+enum Panes {
+
+  Galleries = 0,
+  About,
+  Contact
+
+}
+
+export interface AppProps {
+
+  children?: any
+
+}
+
+export interface AppState {
+
+  activePane: Panes;
+
+}
+
+export class App extends React.Component < AppProps, AppState > {
+
+  private readonly buffer: number;
+
+  constructor( props: AppProps ) {
+
+    super( props );
+
+    this.state = {
+
+      activePane: Panes.Galleries,
+
+    };
+    this.buffer = Math.floor( window.innerHeight / 4 );
+
+  }
+
+  componentDidMount() {
+
+    window.addEventListener( 'scroll', this.onScroll.bind( this ) );
+
+  }
+
+  componentWillUnmount() {
+
+    window.removeEventListener( 'scroll', this.onScroll.bind( this ) );
+
+  }
+
+  onScroll() {
+
+    this.setState( {
+
+      activePane: Math.floor( ( window.scrollY + this.buffer * 0.5 ) / this.buffer )
+
+    } );
+
+  }
+
+  render() {
 
 
-  const galleries = [
+    const galleries = [
 
-    "/images/IMG_6625.jpg",
-    "/images/IMG_7863.jpg",
-    "/images/IMG_8929.jpg"
+      "/images/IMG_6625.jpg",
+      "/images/IMG_7863.jpg",
+      "/images/IMG_8929.jpg"
 
-  ];
+    ];
 
-  return (
-    <main id="app">
-      <Galleries galleries={ galleries } />
-      <About />
-      <Contact />
-    </main>
-  );
+    const classes = galleries.map( ( d, i ) => {
+
+      if ( i < this.state.activePane ) {
+
+        return 'above';
+
+      }
+
+      return i > this.state.activePane ? 'below' : 'active';
+
+    } );
+
+    return (
+      <main
+        id="app"
+      >
+        <Galleries
+          galleries={ galleries }
+          className={ classes[ Panes.Galleries ] }
+        />
+        <About
+          className={ classes[ Panes.About ] }
+        />
+        <Contact
+          className={ classes[ Panes.Contact ] }
+        />
+      </main>
+    );
+
+  }
 
 }
