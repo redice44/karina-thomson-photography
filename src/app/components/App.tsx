@@ -74,7 +74,7 @@ export class App extends React.Component < AppProps, AppState > {
 
     ];
 
-    const appHeight = ( galleries.length * this.buffer ) + window.innerHeight - 1;
+    // const appHeight = ( galleries.length * this.buffer ) + window.innerHeight - 1;
     const classes = galleries.map( ( d, i ) => {
 
       if ( i < this.state.activePane ) {
@@ -88,18 +88,17 @@ export class App extends React.Component < AppProps, AppState > {
     } );
 
     return (
-      <main 
-        id="app" 
-        style={{ height: `${ appHeight }px` }}
+      <main
+        id="app"
       >
         <Galleries
           galleries={ galleries }
           className={ classes[ Panes.Galleries ] }
         />
-        <About 
+        <About
           className={ classes[ Panes.About ] }
         />
-        <Contact 
+        <Contact
           className={ classes[ Panes.Contact ] }
         />
       </main>

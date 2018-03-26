@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { AboutText } from './AboutText';
+import { FrontPageGallery } from './FrontPageGallery';
 import { FullPane } from './FullPane';
 import { HalfPane } from './HalfPane';
 
@@ -10,6 +11,9 @@ export interface AboutProps {
 
 }
 
+
+      // <img src="/images/IMG_8862.jpg" />
+
 export const About = ( props: AboutProps ) =>
 
   <FullPane
@@ -17,7 +21,10 @@ export const About = ( props: AboutProps ) =>
     className={ `main-pane ${ props.className ? props.className : '' }` }
   >
     <HalfPane side="left">
-      <img src="/images/IMG_8862.jpg" />
+      <FrontPageGallery
+        imgSrc="/images/IMG_8862.jpg"
+        className="active"
+      />
     </HalfPane>
     <HalfPane side="right" valign="center">
       <AboutText />
