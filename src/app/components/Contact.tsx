@@ -18,10 +18,12 @@ export const Contact = ( props: ContactProps ) =>
     id="contact"
     className={ `main-pane ${ props.className ? props.className : '' }` }
   >
-    <FrontPageGallery
-      imgSrc="/images/IMG_8362.jpg"
-      className="active"
-    />
+    <HalfPane side="left">
+      <FrontPageGallery
+        imgSrc="/images/IMG_8362.jpg"
+        className="active"
+      />
+    </HalfPane>
     <HalfPane valign="center" side="right">
       <ContactForm />
     </HalfPane>

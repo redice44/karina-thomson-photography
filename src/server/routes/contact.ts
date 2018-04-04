@@ -1,11 +1,53 @@
 import * as express from 'express';
+// @ts-ignore
+import * as gmailSend from 'gmail-send';
 
 const ContactRouter = express.Router();
 
 ContactRouter.post( '/me', ( req: express.Request, res: express.Response ) => {
 
-  console.log( req.body );
-  res.send( 'done' );
+  const name = req.body[ 'full-name' ];
+  const email = req.body.email;
+  const event = req.body.event;
+  const referral = req.body.referral;
+  const message = req.body.message;
+  const send = gmailSend( {
+
+    user: process.env.HOST_EMAIL_NAME,
+    pass: process.env.HOST_EMAIL_PASS
+
+  } );
+
+  send( {
+
+    to:   email,
+    subject: `Hello ${ name }`,
+    text:    `I have received your request for ${ event }! I will be in contact with you soon.`,         // Plain text
+  }, ( err: any, emailRes: any ) => {
+
+    const bodyText = `${ name } has sent you the following:
+
+Email: ${ email }
+Event Date and Location: ${ event }
+Referral: ${ referral }
+
+Message: ${ message }
+
+`;
+
+    send( {
+
+      to: process.env.HOST_EMAIL_NAME,
+      subject: `New contact from ${ name }`,
+      text: bodyText,
+
+    }, ( err: any, emailRes: any ) => {
+
+      res.send( 'done' );
+
+    });
+
+  });
 
 } );
 

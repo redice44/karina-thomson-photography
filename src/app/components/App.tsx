@@ -37,7 +37,7 @@ export class App extends React.Component < AppProps, AppState > {
       activePane: Panes.Galleries,
 
     };
-    this.buffer = 200;
+    this.buffer = Math.floor( window.innerHeight / 4 );
 
   }
 
@@ -57,7 +57,7 @@ export class App extends React.Component < AppProps, AppState > {
 
     this.setState( {
 
-      activePane: Math.floor( window.scrollY / this.buffer )
+      activePane: Math.floor( ( window.scrollY + this.buffer * 0.5 ) / this.buffer )
 
     } );
 
@@ -74,7 +74,6 @@ export class App extends React.Component < AppProps, AppState > {
 
     ];
 
-    // const appHeight = ( galleries.length * this.buffer ) + window.innerHeight - 1;
     const classes = galleries.map( ( d, i ) => {
 
       if ( i < this.state.activePane ) {
