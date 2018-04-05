@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm run build:dir && npm run build:app && npm run build:sass && npm run build:server",
+    "build": "npm run build:dir && npm run build:app && npm run build:assets && npm run build:sass && npm run build:server",
     "build:app": "webpack",
-    "build:dir": "mkdir -p ./dist/server/views && mkdir -p ./dist/server/assets/js && mkdir -p ./dist/server/assets/css",
+    "build:assets": "cp ./assets/images/* ./dist/server/assets/images/",
+    "build:dir": "mkdir -p ./dist/server/views && mkdir ./dist/server/assets && mkdir ./dist/server/assets/{js,css,images}",
     "build:sass": "node-sass --output-style compact ./src/sass -o ./dist/server/assets/css",
     "build:server": "tsc && npm run build:views",
     "build:views": "cp ./src/server/views/* ./dist/server/views",
@@ -22,7 +23,6 @@
   },
   "keywords": [],
   "author": "Matt Thomson <mthomson.lee@gmail.com>",
-  "license": "ISC",
   "engines": {
     "node": "8.11.1"
   },
