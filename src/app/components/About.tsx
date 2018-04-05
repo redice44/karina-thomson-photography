@@ -12,21 +12,33 @@ export interface AboutProps {
 }
 
 
-      // <img src="/images/IMG_8862.jpg" />
+export const About = ( props: AboutProps ) => {
 
-export const About = ( props: AboutProps ) =>
+  const img = {
 
-  <FullPane
-    id="about"
-    className={ `main-pane ${ props.className ? props.className : '' }` }
-  >
-    <HalfPane side="left">
-      <FrontPageGallery
-        imgSrc="/images/IMG_8862.jpg"
-        className="active"
-      />
-    </HalfPane>
-    <HalfPane side="right" valign="center">
-      <AboutText />
-    </HalfPane>
-  </FullPane>
+    src: '/images/about.jpg',
+    posX: 'left',
+    posY: 'top'
+
+  };
+
+  return (
+    <FullPane
+      id="about"
+      className={ `main-pane ${ props.className ? props.className : '' }` }
+    >
+      <HalfPane side="left">
+        <FrontPageGallery
+          imgSrc={ img.src }
+          imgPosX={ img.posX }
+          imgPosY={ img.posY }
+          className="active"
+        />
+      </HalfPane>
+      <HalfPane side="right" valign="center">
+        <AboutText />
+      </HalfPane>
+    </FullPane>
+  );
+
+}

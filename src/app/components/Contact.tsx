@@ -12,19 +12,33 @@ export interface ContactProps {
 
 };
 
-export const Contact = ( props: ContactProps ) =>
+export const Contact = ( props: ContactProps ) => {
 
-  <FullPane
-    id="contact"
-    className={ `main-pane ${ props.className ? props.className : '' }` }
-  >
-    <HalfPane side="left">
-      <FrontPageGallery
-        imgSrc="/images/IMG_8362.jpg"
-        className="active"
-      />
-    </HalfPane>
-    <HalfPane valign="center" side="right">
-      <ContactForm />
-    </HalfPane>
-  </FullPane>
+  const img = {
+
+    src: '/images/contact.jpg',
+    posX: 'left',
+    posY: 'top'
+
+  };
+
+  return (
+    <FullPane
+      id="contact"
+      className={ `main-pane ${ props.className ? props.className : '' }` }
+    >
+      <HalfPane side="left">
+        <FrontPageGallery
+          imgSrc={ img.src }
+          imgPosX={ img.posX }
+          imgPosY={ img.posY }
+          className="active"
+        />
+      </HalfPane>
+      <HalfPane valign="center" side="right">
+        <ContactForm />
+      </HalfPane>
+    </FullPane>
+  );
+
+}
