@@ -6,8 +6,8 @@
   "scripts": {
     "build": "npm run build:dir && npm run build:app && npm run build:assets && npm run build:sass && npm run build:server",
     "build:app": "webpack",
-    "build:assets": "cp ./assets/images/* ./dist/server/assets/images/",
-    "build:dir": "mkdir -p ./dist/server/views && mkdir ./dist/server/assets && mkdir ./dist/server/assets/{js,css,images}",
+    "build:assets": "./scripts/buildDir.sh",
+    "build:dir": "./scripts/buildDir.sh",
     "build:sass": "node-sass --output-style compact ./src/sass -o ./dist/server/assets/css",
     "build:server": "tsc && npm run build:views",
     "build:views": "cp ./src/server/views/* ./dist/server/views",
