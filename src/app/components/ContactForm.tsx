@@ -1,4 +1,6 @@
 import * as React from 'react';
+//@ts-ignore
+import { NotificationContainer, NotificationManager } from 'react-notifications';
 
 import { TextArea } from './TextArea';
 import { TextInput } from './TextInput';
@@ -43,6 +45,8 @@ export class ContactForm extends React.Component < ContactFormProps, ContactForm
 
   submitForm() {
 
+    document.querySelector( '#contact' ).scrollIntoView();
+
     const url = '/contact/me';
     const opts = {
 
@@ -78,15 +82,15 @@ export class ContactForm extends React.Component < ContactFormProps, ContactForm
       } )
         .then( json => {
 
-          console.log( json );
+          NotificationManager.success( 'You can expect an email from me in the next 72 hours.' );
 
         } )
         .catch( error => {
 
+          NotificationManager.error( 'An Error has occurred. Please try again.' );
           console.log( error );
 
         } );
-
 
   }
 
@@ -106,6 +110,7 @@ export class ContactForm extends React.Component < ContactFormProps, ContactForm
           name="email"
           type="email"
           placeholder="Email Address"
+          required={ true }
           value={ this.state.email }
           onChange={ this.handleChange.bind( this ) }
         />
@@ -136,6 +141,7 @@ export class ContactForm extends React.Component < ContactFormProps, ContactForm
             onClick={ this.submitForm.bind( this ) }
           />
         </div>
+        <NotificationContainer />
       </section>
     );
 

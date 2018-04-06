@@ -18,34 +18,24 @@ ContactRouter.post( '/me', ( req: express.Request, res: express.Response ) => {
 
   } );
 
-  send( {
-
-    to:   email,
-    subject: `Hello ${ name }`,
-    text:    `I have received your request for ${ event }! I will be in contact with you soon.`,         // Plain text
-  }, ( err: any, emailRes: any ) => {
-
-    const bodyText = `${ name } has sent you the following:
+  const bodyText = `${ name } has sent you the following:
 
 Email: ${ email }
 Event Date and Location: ${ event }
 Referral: ${ referral }
 
 Message: ${ message }
-
 `;
 
-    send( {
+  send( {
 
-      to: process.env.HOST_EMAIL_NAME,
-      subject: `New contact from ${ name }`,
-      text: bodyText,
+    to: process.env.HOST_EMAIL_NAME,
+    subject: `New contact from ${ name }`,
+    text: bodyText,
 
-    }, ( err: any, emailRes: any ) => {
+  }, ( err: any, emailRes: any ) => {
 
-      res.json( { message: 'success' } );
-
-    });
+    res.json( { message: 'success' } );
 
   });
 

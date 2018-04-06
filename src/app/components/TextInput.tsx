@@ -7,6 +7,7 @@ export interface TextInputProps {
   placeholder?: string;
   value: string;
   onChange: ( key: string, value: string ) => void;
+  required?: boolean;
 }
 
 export const TextInput = ( props: TextInputProps ) =>
@@ -17,4 +18,5 @@ export const TextInput = ( props: TextInputProps ) =>
     name={ props.name }
     value={ props.value }
     onChange={ event => { props.onChange( props.name, event.target.value ) } }
+    required={ props.required ? true : false }
   />
