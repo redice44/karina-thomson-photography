@@ -16,7 +16,6 @@ $breakpoint-small: 480px;
 
   &.below {
 
-    // top: 5vh;
     top: 0;
     left: 0;
 
@@ -43,7 +42,6 @@ $breakpoint-small: 480px;
   h1 {
 
     text-align: center;
-    // font-size: 30px;
     margin-bottom: 30px;
 
   }
@@ -51,11 +49,11 @@ $breakpoint-small: 480px;
   input[type="text"],
   input[type="email"],
   input[type="submit"],
+  input[type="button"],
   textarea {
 
     margin-bottom: 10px;
     padding: 10px;
-    // font-family: sans-serif;
     box-sizing: border-box;
     background-color: transparent;
     border: 0;
@@ -83,6 +81,7 @@ $breakpoint-small: 480px;
 
   }
 
+  input[type="button"]:hover,
   input[type="submit"]:hover {
 
     cursor: pointer;

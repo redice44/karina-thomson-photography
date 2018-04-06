@@ -6,7 +6,7 @@ const ContactRouter = express.Router();
 
 ContactRouter.post( '/me', ( req: express.Request, res: express.Response ) => {
 
-  const name = req.body[ 'full-name' ];
+  const name = req.body.fullname;
   const email = req.body.email;
   const event = req.body.event;
   const referral = req.body.referral;
@@ -43,7 +43,7 @@ Message: ${ message }
 
     }, ( err: any, emailRes: any ) => {
 
-      res.send( 'done' );
+      res.json( { message: 'success' } );
 
     });
 

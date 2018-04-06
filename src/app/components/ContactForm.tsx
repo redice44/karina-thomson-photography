@@ -3,18 +3,143 @@ import * as React from 'react';
 import { TextArea } from './TextArea';
 import { TextInput } from './TextInput';
 
-export const ContactForm = () =>
+export interface ContactFormProps {}
+export interface ContactFormState {
 
-  <section id="contact-form">
-    <h1>Let's Get In Touch</h1>
-    <form method="POST" action="/contact/me">
-      <TextInput name="full-name" type="text" placeholder="Full Name" />
-      <TextInput name="email" type="email" placeholder="Email Address" />
-      <TextInput name="event" type="text" placeholder="Event Date and Location" />
-      <TextInput name="referral" type="text" placeholder="Referral" />
-      <TextArea name="message" placeholder="Your Message" />
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <input type="submit" value="Let's Connect" />
-      </div>
-    </form>
-  </section>
+  fullname: string;
+  email: string;
+  event: string;
+  referral: string;
+  message: string;
+
+}
+
+export class ContactForm extends React.Component < ContactFormProps, ContactFormState >  {
+
+  constructor( props: ContactFormProps ) {
+
+    super( props );
+
+    this.state = {
+
+      fullname: '',
+      email: '',
+      event: '',
+      referral: '',
+      message: ''
+
+    };
+
+  }
+
+  handleChange( key: string, value: string ) {
+
+    const update: any = {};
+    update[ key ] = value;
+
+    this.setState( update );
+
+  }
+
+  submitForm() {
+
+    const url = '/contact/me';
+    const opts = {
+
+      method: 'POST',
+      headers: {
+
+        'content-type': 'application/json'
+
+      },
+      body: JSON.stringify( {
+
+        fullname: this.state.fullname,
+        email: this.state.email,
+        event: this.state.event,
+        referral: this.state.referral,
+        message: this.state.message
+
+      } )
+
+    };
+
+    fetch( url, opts )
+      .then( res => {
+
+        if ( res.ok ) {
+
+          return res.json();
+
+        }
+
+        throw new Error( 'Error in response' );
+
+      } )
+        .then( json => {
+
+          console.log( json );
+
+        } )
+        .catch( error => {
+
+          console.log( error );
+
+        } );
+
+
+  }
+
+  render() {
+
+    return (
+      <section id="contact-form">
+        <h1>Let's Get In Touch</h1>
+        <TextInput
+          name="fullname"
+          type="text"
+          placeholder="Full Name"
+          value={ this.state.fullname }
+          onChange={ this.handleChange.bind( this ) }
+        />
+        <TextInput
+          name="email"
+          type="email"
+          placeholder="Email Address"
+          value={ this.state.email }
+          onChange={ this.handleChange.bind( this ) }
+        />
+        <TextInput
+          name="event"
+          type="text"
+          placeholder="Event Date and Location"
+          value={ this.state.event }
+          onChange={ this.handleChange.bind( this ) }
+        />
+        <TextInput
+          name="referral"
+          type="text"
+          placeholder="Referral"
+          value={ this.state.referral }
+          onChange={ this.handleChange.bind( this ) }
+        />
+        <TextArea
+          name="message"
+          placeholder="Your Message"
+          value={ this.state.message }
+          onChange={ this.handleChange.bind( this ) }
+        />
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <input
+            type="button"
+            value="Let's Connect"
+            onClick={ this.submitForm.bind( this ) }
+          />
+        </div>
+      </section>
+    );
+
+  }
+
+}
+

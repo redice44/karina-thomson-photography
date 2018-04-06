@@ -1,8 +1,6 @@
 $transition-speed: 0.5s;
 $breakpoint-small: 480px;
 
-
-
 #app {
 
   @media (max-width: $breakpoint-small) {
@@ -16,6 +14,12 @@ $breakpoint-small: 480px;
     height: 150vh;
 
   }
+
+}
+
+p.justify {
+
+  text-align: justify;
 
 }
 

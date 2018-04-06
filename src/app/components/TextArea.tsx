@@ -4,13 +4,16 @@ export interface TextAreaProps {
 
   name: string;
   placeholder: string;
+  value: string;
+  onChange: ( key: string, value: string ) => void;
 
 };
 
-export const TextArea = ( props: TextAreaProps ) => 
+export const TextArea = ( props: TextAreaProps ) =>
 
-  <textarea 
+  <textarea
     placeholder={ props.placeholder }
     name={ props.name }
-  >
-  </textarea>
+    value={ props.value }
+    onChange={ event => { props.onChange( props.name, event.target.value ) } }
+  />
