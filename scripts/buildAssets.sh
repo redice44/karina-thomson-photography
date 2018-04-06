@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cp ./assets/* ./dist/server/assets/
+cp -rf ./assets/* ./dist/server/assets/
