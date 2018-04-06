@@ -8,7 +8,7 @@
     "build:app": "webpack",
     "build:assets": "./scripts/buildAssets.sh",
     "build:dir": "./scripts/buildDir.sh",
-    "build:sass": "node-sass --output-style compact ./src/sass -o ./dist/server/assets/css",
+    "build:sass": "node-sass --output-style compressed ./src/sass -o ./dist/server/assets/css",
     "build:server": "tsc && npm run build:views",
     "build:views": "cp ./src/server/views/* ./dist/server/views",
     "clean": "find ./src -type f -name '*.js' -delete && find ./src -type f -name '*.js.map' -delete",
