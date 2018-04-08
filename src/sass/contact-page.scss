@@ -1,9 +1,6 @@
 @import "core";
-@import "main";
-@import "about";
-@import "contact";
-@import "galleries";
-@import "react-notifications";
+@import "full-pane";
+@import "hero";
 
 $breakpoint-small: 480px;
 
@@ -11,13 +8,13 @@ $breakpoint-small: 480px;
 
   @media (max-width: $breakpoint-small) {
 
-    height: 500vh;
+    // height: 500vh;
 
   }
 
   @media (min-width: $breakpoint-small) {
 
-    height: 150vh;
+    // height: 100vh;
 
   }
 

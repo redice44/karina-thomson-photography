@@ -1,21 +1,7 @@
+@import 'full-pane';
+@import 'half-pane';
+
 $transition-speed: 0.5s;
-$breakpoint-small: 480px;
-
-#app {
-
-  @media (max-width: $breakpoint-small) {
-
-    height: 500vh;
-
-  }
-
-  @media (min-width: $breakpoint-small) {
-
-    height: 150vh;
-
-  }
-
-}
 
 p.justify {
 
@@ -38,27 +24,7 @@ p.justify {
 
   }
 
-  img {
-
-
-
-    // @media (max-width: 480px) {
-
-    //   height: 100%;
-
-    // }
-
-    // @media (min-width: 480px) {
-
-    //   width: 100%;
-
-    // }
-
-  }
-
 }
-
-
 
 @-webkit-keyframes fade {
 
@@ -83,141 +49,6 @@ p.justify {
   100% {
 
     opacity: 0.25;
-
-  }
-
-}
-
-.full-pane {
-
-  // height: 100vh;
-
-  &.main-pane {
-
-    @media (max-width: 480px) {
-
-
-    }
-
-    @media (min-width: 480px) {
-
-      position: fixed;
-      width: 100vw;
-      opacity: 0;
-
-    }
-
-    // display: none;
-    // height: 110vh;
-    overflow: hidden;
-    // top: 50px;
-    transition-duration: $transition-speed;
-    transition-property: opacity, top, left;
-    transition-timing-function: ease-in;
-
-    &.active {
-
-      // display: block;
-      // top: -5vh;
-      top: 0;
-      left: 0;
-      opacity: 1;
-      z-index: 100;
-
-    }
-
-    .down-arrow {
-
-      .icon {
-
-        transition-duration: $transition-speed;
-        transition-property: opacity, margin;
-        transition-timing-function: ease-in;
-
-      }
-
-    }
-
-    &:hover {
-
-      .down-arrow {
-
-        .icon {
-
-          opacity: 0.5;
-          transition-duration: $transition-speed;
-          transition-property: opacity, margin;
-          transition-timing-function: ease-in;
-
-          &:hover {
-
-            opacity: 1;
-
-          }
-
-        }
-
-      }
-
-    }
-
-  }
-
-}
-
-.half-pane {
-
-  @media (max-width: 480px) {
-
-    height: 100vh;
-    width: 100vw;
-
-  }
-
-  @media (min-width: 480px) {
-
-    height: 100vh;
-    width: 50vw;
-    overflow: hidden;
-
-  }
-
-  position: relative;
-  top: 0;
-  left: 0;
-
-  &.valign-center {
-
-    display: flex;
-    align-items: center;
-
-  }
-
-  &.align-center {
-
-    display: flex;
-    justify-content: center;
-
-  }
-
-  &.left {
-
-    img {
-
-      width: 50vw;
-
-    }
-
-  }
-
-  &.right {
-
-    @media (min-width: 480px) {
-
-      left: 50vw;
-      top: -100vh;
-
-    }
 
   }
 
