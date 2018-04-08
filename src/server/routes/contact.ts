@@ -4,6 +4,12 @@ import * as gmailSend from 'gmail-send';
 
 const ContactRouter = express.Router();
 
+ContactRouter.get( '/', ( req: express.Request, res: express.Response ) => {
+
+  res.render( 'contact' );
+
+} );
+
 ContactRouter.post( '/me', ( req: express.Request, res: express.Response ) => {
 
   const name = req.body.fullname;
