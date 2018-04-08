@@ -1,0 +1,47 @@
+$breakpoint-small: 480px;
+
+
+#footer {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #111;
+  height: 300px;
+
+  a {
+
+    width: 100%;
+    text-align: center;
+
+  }
+
+  @media (max-width: $breakpoint-small) {
+
+    img {
+
+      width: 60%
+
+    }
+
+  }
+
+  @media (min-width: $breakpoint-small) {
+
+    img {
+
+      width: 30%
+
+    }
+
+  }
+
+  p {
+
+    margin-top: 2em;
+
+  }
+
+}

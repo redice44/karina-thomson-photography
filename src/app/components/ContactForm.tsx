@@ -166,14 +166,14 @@ export class ContactForm extends React.Component < ContactFormProps, ContactForm
         <TextInput
           name="eventDate"
           type="text"
-          placeholder="Event Date"
+          placeholder="Event Date*"
           value={ this.state.eventDate }
           onChange={ this.handleChange.bind( this ) }
         />
         <TextInput
           name="eventLoc"
           type="text"
-          placeholder="Event Location"
+          placeholder="Event Location*"
           value={ this.state.eventLoc }
           onChange={ this.handleChange.bind( this ) }
         />

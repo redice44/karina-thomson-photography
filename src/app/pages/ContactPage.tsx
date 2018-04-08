@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import { Hero } from '../components/Hero';
 import { ContactForm } from '../components/ContactForm';
+import { Footer } from '../components/Footer';
 
 export interface ContactPageProps {
 
@@ -86,6 +87,7 @@ export class ContactPage extends React.Component < ContactPageProps, ContactPage
           imgPosY={ img[ this.state.display ].posY }
         />
         <ContactForm />
+        <Footer />
       </main>
     );
 
