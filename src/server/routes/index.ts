@@ -1,6 +1,7 @@
 import * as express from 'express';
 
 import ContactRouter from './contact';
+import SoonRouter from './soon';
 
 const landingPage = ( req: express.Request, res: express.Response ) => {
 
@@ -11,7 +12,8 @@ const landingPage = ( req: express.Request, res: express.Response ) => {
 export default {
 
   landingPage: landingPage,
-  contactRouter: ContactRouter
+  contactRouter: ContactRouter,
+  soonRouter: SoonRouter
 
 };
 

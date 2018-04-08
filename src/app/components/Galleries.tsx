@@ -64,8 +64,6 @@ export class Galleries extends React.Component < GalleriesProps, GalleriesState 
 
   componentWillReceiveProps( nextProps: GalleriesProps ) {
 
-    console.log( `galleries updated ${ nextProps.galleries.length }` );
-
     this.setState( {
 
       galleries: nextProps.galleries
@@ -81,8 +79,6 @@ export class Galleries extends React.Component < GalleriesProps, GalleriesState 
   }
 
   render() {
-
-    console.log( `galleries: ${ this.state.galleries.length }` );
 
     const galleries = this.state.galleries.map( ( gallery, i ) =>
 
@@ -109,19 +105,3 @@ export class Galleries extends React.Component < GalleriesProps, GalleriesState 
   }
 
 }
-
-
-// export const Galleries = ( props: GalleriesProps ) => {
-
-//   const galleries = [
-//     "/images/IMG_6625.jpg",
-//     "/images/IMG_7863.jpg",
-//     "/images/IMG_8929.jpg"
-//   ].map( d => <FrontPageGallery imgSrc=d />)
-
-//   return (
-//     <FullPane id="galleries" className="main-pane">
-//       { galleries }
-//     </FullPane>
-//   );
-// }

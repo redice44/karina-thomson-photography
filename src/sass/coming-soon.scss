@@ -1,0 +1,96 @@
+$breakpoint-small: 480px;
+
+#coming-soon {
+
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 101;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  h4 {
+
+    color: #fff;
+
+  }
+
+  p {
+
+    color: #fff;
+
+    a, a:hover, a:visited {
+
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 30px;
+      border: 1px solid #fff;
+      font-size: 0.65em;
+
+    }
+
+  }
+
+  @media (max-width: $breakpoint-small) {
+
+    img {
+
+      width: 80%
+
+    }
+
+    h4 {
+
+      margin-top: 2em;
+      font-size: 1.25em;
+
+    }
+
+    p {
+
+      margin-top: 2em;
+      font-size: 1.25em;
+
+      a, a:hover, a:visited {
+
+        font-size: 0.75em;
+
+      }
+
+    }
+
+  }
+
+  @media (min-width: $breakpoint-small) {
+
+    img {
+
+      width: 50%;
+
+    }
+
+    h4, p {
+
+      margin-top: 4em;
+      font-size: 1.5em;
+
+    }
+
+    p {
+
+      margin-top: 2em;
+      font-size: 1.5em;
+
+    }
+
+  }
+
+
+
+
+}

@@ -18,8 +18,17 @@ export default () => {
 
   server.use( express.static( path.join( __dirname, 'assets' ) ) );
 
-  server.get( '/', routes.landingPage );
+  // server.get( '/', routes.landingPage );
+  server.use( '/', routes.soonRouter );
   server.use( '/contact', routes.contactRouter );
+
+
+  // Redirect everything (404) to coming soon page
+  server.use( ( req, res, next ) => {
+
+    res.redirect( '/' );
+
+  } );
 
   return server;
 

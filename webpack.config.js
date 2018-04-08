@@ -4,7 +4,8 @@ module.exports = {
 
   entry: {
     app: './src/app/index.tsx',
-    contact: './src/app/contact.tsx'
+    contact: './src/app/contact.tsx',
+    soon: './src/app/soon.tsx'
   },
   output: {
 
