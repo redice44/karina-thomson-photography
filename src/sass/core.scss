@@ -33,7 +33,9 @@ body {
 
   p,
   input,
+  input::-webkit-input-placeholder,
   textarea,
+  textarea::-webkit-input-placeholder,
   div {
 
     font-family: $primary-font;

@@ -2,6 +2,7 @@ import * as React from 'react';
 //@ts-ignore
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 
+import { RadioChoices } from './RadioChoices';
 import { TextArea } from './TextArea';
 import { TextInput } from './TextInput';
 
@@ -10,13 +11,17 @@ export interface ContactFormState {
 
   fullname: string;
   email: string;
-  event: string;
+  eventDate: string;
+  eventLoc: string;
   referral: string;
   message: string;
+  optionId: string;
 
 }
 
 export class ContactForm extends React.Component < ContactFormProps, ContactFormState >  {
+
+  private readonly photographyCategory: any[];
 
   constructor( props: ContactFormProps ) {
 
@@ -26,11 +31,42 @@ export class ContactForm extends React.Component < ContactFormProps, ContactForm
 
       fullname: '',
       email: '',
-      event: '',
+      eventDate: '',
+      eventLoc: '',
       referral: '',
-      message: ''
+      message: '',
+      optionId: '-1'
 
     };
+
+    this.photographyCategory = [
+
+      {
+        name: 'Wedding',
+        value: 'wedding'
+      },
+      {
+        name: 'Engagement',
+        value: 'engagement'
+      },
+      {
+        name: 'Family',
+        value: 'family'
+      },
+      {
+        name: 'Fresh 48',
+        value: 'fresh-48'
+      },
+      {
+        name: 'Portraits',
+        value: 'portraits'
+      },
+      {
+        name: 'Other',
+        value: 'other'
+      }
+
+    ];
 
   }
 
@@ -45,7 +81,7 @@ export class ContactForm extends React.Component < ContactFormProps, ContactForm
 
   submitForm() {
 
-    document.querySelector( '#contact' ).scrollIntoView();
+    document.querySelector( '#app' ).scrollIntoView();
 
     const url = '/contact/me';
     const opts = {
@@ -60,7 +96,9 @@ export class ContactForm extends React.Component < ContactFormProps, ContactForm
 
         fullname: this.state.fullname,
         email: this.state.email,
-        event: this.state.event,
+        eventDate: this.state.eventDate,
+        eventLoc: this.state.eventLoc,
+        eventType: this.state.optionId === '-1' ? 'None Chosen' : this.photographyCategory[ parseInt( this.state.optionId ) ].value,
         referral: this.state.referral,
         message: this.state.message
 
@@ -83,6 +121,18 @@ export class ContactForm extends React.Component < ContactFormProps, ContactForm
         .then( json => {
 
           NotificationManager.success( 'You can expect an email from me in the next 72 hours.' );
+          this.setState( {
+
+            fullname: '',
+            email: '',
+            eventDate: '',
+            eventLoc: '',
+            referral: '',
+            message: '',
+            optionId: '-1'
+
+          } );
+
 
         } )
         .catch( error => {
@@ -102,23 +152,29 @@ export class ContactForm extends React.Component < ContactFormProps, ContactForm
         <TextInput
           name="fullname"
           type="text"
-          placeholder="Full Name"
+          placeholder="Full Name*"
           value={ this.state.fullname }
           onChange={ this.handleChange.bind( this ) }
         />
         <TextInput
           name="email"
           type="email"
-          placeholder="Email Address"
-          required={ true }
+          placeholder="Email Address*"
           value={ this.state.email }
           onChange={ this.handleChange.bind( this ) }
         />
         <TextInput
-          name="event"
+          name="eventDate"
           type="text"
-          placeholder="Event Date and Location"
-          value={ this.state.event }
+          placeholder="Event Date"
+          value={ this.state.eventDate }
+          onChange={ this.handleChange.bind( this ) }
+        />
+        <TextInput
+          name="eventLoc"
+          type="text"
+          placeholder="Event Location"
+          value={ this.state.eventLoc }
           onChange={ this.handleChange.bind( this ) }
         />
         <TextInput
@@ -127,6 +183,12 @@ export class ContactForm extends React.Component < ContactFormProps, ContactForm
           placeholder="Referral"
           value={ this.state.referral }
           onChange={ this.handleChange.bind( this ) }
+        />
+        <p style={{ paddingLeft: '10px', paddingBottom: '5px'}}>Photography Category*</p>
+        <RadioChoices
+          options={ this.photographyCategory }
+          checked={ parseInt( this.state.optionId ) }
+          onChange={ ( value ) => { this.handleChange( 'optionId', value ) } }
         />
         <TextArea
           name="message"

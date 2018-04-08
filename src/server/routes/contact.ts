@@ -14,7 +14,9 @@ ContactRouter.post( '/me', ( req: express.Request, res: express.Response ) => {
 
   const name = req.body.fullname;
   const email = req.body.email;
-  const event = req.body.event;
+  const eventDate = req.body.eventDate;
+  const eventLoc = req.body.eventLoc;
+  const eventType = req.body.eventType;
   const referral = req.body.referral;
   const message = req.body.message;
   const send = gmailSend( {
@@ -27,7 +29,9 @@ ContactRouter.post( '/me', ( req: express.Request, res: express.Response ) => {
   const bodyText = `${ name } has sent you the following:
 
 Email: ${ email }
-Event Date and Location: ${ event }
+Event Date ${ eventDate }
+Event Location: ${ eventLoc }
+Event Type: ${ eventType }
 Referral: ${ referral }
 
 Message: ${ message }
