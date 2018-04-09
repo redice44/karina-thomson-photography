@@ -120,7 +120,7 @@ export class ContactForm extends React.Component < ContactFormProps, ContactForm
       } )
         .then( json => {
 
-          NotificationManager.success( 'You can expect an email from me in the next 72 hours.' );
+          NotificationManager.success( 'Message Sent. You can expect an email in the next 72 hours.' );
           this.setState( {
 
             fullname: '',
